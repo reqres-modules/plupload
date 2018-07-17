@@ -32,7 +32,7 @@ trait View  {
 	function mod_plupload_error($code, $message)
 	{
 
-		$this-> no_cache_response()
+		$this-> mod_plupload_no_cache_response()
 			-> data([
 				'jsonrpc' => '2.0',
 				'error' => [
@@ -53,7 +53,7 @@ trait View  {
 	function mod_plupload_result()
 	{
 
-		$this-> no_cache_response()
+		$this-> mod_plupload_no_cache_response()
 			-> data([
 				'jsonrpc' => '2.0',
 				'result' => null,

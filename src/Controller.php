@@ -1,12 +1,14 @@
 <?php
 namespace Reqres\Module\Plupload;
 
+use Reqres\Superglobals\GET;
+use Reqres\Superglobals\POST;
+use Reqres\Superglobals\SERVER;
 use Reqres\User;
 use Reqres\Request;
 use Reqres\Form;
 use Reqres\Error;
 use Reqres\Lib;
-use Reqres\Server;
 
 /**
  *
@@ -15,6 +17,9 @@ use Reqres\Server;
  */
 trait Controller
 {
+    
+	protected $mod_plupload_tmp_dir = \Reqres\APP_TMP.'/plupload'; 
+
     
 	public function mod_plupload_action()
 	{
