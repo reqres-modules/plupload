@@ -1,0 +1,16 @@
+{
+    "name": "bumax/module-plupload",
+    "description": "Reqres Plupload Module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Max Buldovsky",
+            "email": "max@buldovsky.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Reqres\\Module\\Plupload\\": "src/"
+        }
+    }        
+}
