@@ -20,7 +20,8 @@ trait View  {
 			-> header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT")
 			-> header("Cache-Control: no-store, no-cache, must-revalidate")
 			-> header("Cache-Control: post-check=0, pre-check=0", false)
-			-> header("Pragma: no-cache");
+			-> header("Pragma: no-cache")
+		;
 
 	}
 
@@ -32,7 +33,7 @@ trait View  {
 	function mod_plupload_error($code, $message)
 	{
 
-		$this-> mod_plupload_no_cache_response()
+		return $this-> mod_plupload_no_cache_response()
 			-> data([
 				'jsonrpc' => '2.0',
 				'error' => [
@@ -41,7 +42,7 @@ trait View  {
 				],
 				'id' => 'id'							
 			])
-			-> respond();
+		;
 
 	}
 
@@ -53,13 +54,13 @@ trait View  {
 	function mod_plupload_result()
 	{
 
-		$this-> mod_plupload_no_cache_response()
+		return $this-> mod_plupload_no_cache_response()
 			-> data([
 				'jsonrpc' => '2.0',
 				'result' => null,
 				'id' => 'id'							
 			])
-			-> respond();
+		;
 
 	}
 
@@ -71,8 +72,7 @@ trait View  {
 	function mod_plupload_curl_result()
 	{
 
-		Response\Text::newtext('OK')
-			-> respond();
+		return Response\Text::newtext('OK');
 
 	}
 
@@ -84,9 +84,9 @@ trait View  {
 	function mod_plupload_curl_error()
 	{
 
-		Response\Text::newtext('OK')
+		return Response\Text::newtext('OK')
 			-> status(404)
-			-> respond();
+		);
 
 	}
 
